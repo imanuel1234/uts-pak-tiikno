@@ -305,3 +305,52 @@ footer a:hover {
         width: 95%;
     }
 }
+/* Styling untuk Judul */
+#keahlian h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff; /* Warna biru Bootstrap */
+}
+
+/* Styling untuk Label Skill */
+#keahlian label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #343a40;
+}
+
+/* Styling untuk Progress Bar */
+#keahlian .progress {
+    height: 1.5rem;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#keahlian .progress-bar {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Animasi saat di-scroll */
+@keyframes growProgress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+#keahlian .progress-bar[data-animate="true"] {
+    animation: growProgress 1.5s forwards;
+}
+
