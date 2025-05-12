@@ -404,6 +404,46 @@
         </div>
     </div>
 </section>
+    
+<section id="hewan" class="container my-5">
+    <h2 class="text-primary text-center mb-4">Galeri Hewan</h2>
+    <div class="row" id="animal-list">
+        <!-- Data dari API akan ditampilkan di sini -->
+    </div>
+</section>
+
+<!-- CDN Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript untuk Fetch API -->
+<script>
+    // Ambil data dari API
+    fetch('https://zoo-animal-api.herokuapp.com/animals/rand/5')
+        .then(response => response.json())
+        .then(data => {
+            const animalList = document.getElementById('animal-list');
+            data.forEach(animal => {
+                animalList.innerHTML += `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="${animal.image_link}" class="card-img-top" alt="${animal.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${animal.name}</h5>
+                            <p class="card-text">
+                                <strong>Habitat:</strong> ${animal.habitat} <br>
+                                <strong>Diet:</strong> ${animal.diet} <br>
+                                <strong>Location:</strong> ${animal.geo_range} <br>
+                                <strong>Lifespan:</strong> ${animal.lifespan} years
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
 
   <!-- Footer -->
   <footer class="bg-primary text-white text-center py-4">
